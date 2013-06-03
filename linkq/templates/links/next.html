@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block page_title %} Link Queue {% endblock %}
+
+
+{% block content %}
+
+{% if link %}
+  <p>Your next link is: <a href="{{ link }}">{{ link }}</a></p>
+
+<form action="." method="POST">{{ form }}{% csrf_token %}
+   <input type="submit" value="Go" />
+</form>
+
+{% else %}
+  <p>No more links!</p>
+{% endif %}
+
+
+{% endblock %}

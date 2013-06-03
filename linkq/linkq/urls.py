@@ -12,7 +12,7 @@ urlpatterns = patterns('',
 
     # Examples:
     # url(r'^$', 'linkq.views.home', name='home'),
-    # url(r'^linkq/', include('linkq.foo.urls')),
+    url(r'^links/', include('links.urls')),
 
     # uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

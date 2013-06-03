@@ -1,5 +1,6 @@
-{% load staticfiles %}
 <!DOCTYPE html>
+{% load staticfiles %}
+{% load current from navigation %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -44,9 +45,10 @@
           <a class="brand" href="#">linkq</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li class="{% current 'index' %}"><a href="{% url 'index' %}">Home</a></li>
+              <li class="{% current 'add_links' %}"><a href="{% url 'add_links' %}">Add</a></li>
+              <li class="{% current 'queued_links' %}"><a href="{% url 'queued_links' %}">Queue</a></li>
+              <li class="{% current 'read_links' %}"><a href="{% url 'read_links' %}">Read</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -54,6 +56,17 @@
     </div>
 
     <div class="container">
+
+
+      {% if messages %}
+          {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              {{ message }}
+            </div>
+          {% endfor %}
+      {% endif %}
+
 
       <h1>{% block page_title %}Example Base Template{% endblock page_title %}</h1>
 

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block page_title %} {{ title }} {% endblock %}
+
+
+{% block content %}
+
+{% if link_list %}
+        {% for link in link_list %}
+            <div class="link">
+               <p class="lead"><a href=={{ link.url }}">{{ link.url }}</a></p>
+               <span class="date-added">Added: {{ link.created }}</span>
+               {% if link.read %}
+                 <span class="date-read">Read: {{ link.read }}</span>
+               {% endif %}
+               {% if link.summary %}
+                  <div class="summary">
+                  {% autoescape off %}
+                    {{ link.summary }}
+                  {% endautoescape %}
+                  </div>
+               {% endif %}
+            </div>
+        {% endfor %}
+    {# .... **Now the pagination section** .... #}
+    {% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+{% else %}
+    <p>No links found</p>
+{% endif %}
+
+{% endblock %}

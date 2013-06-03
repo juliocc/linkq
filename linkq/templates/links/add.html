@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block page_title %} Add Links {% endblock %}
+
+
+{% block content %}
+
+<form action="{% url 'add_links' %}" method="POST">
+   {{ form }}{% csrf_token %}
+  <br/>
+   <input type="submit" value="Save" />
+</form>
+
+
+{% endblock %}

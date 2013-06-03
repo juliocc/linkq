@@ -9,10 +9,11 @@ class Link(TimeStampedModel):
     read = models.DateTimeField("Date read", null=True, blank=True)
     summary = tinymce_models.HTMLField(blank=True)
 
-    objects = models.Manager()
-    objects_read = QueryManager(read__isnull=False).order_by('-created')
-    objects_unread = QueryManager(read__isnull=True).order_by('-created')
+    # TODO: add title
 
+    objects = models.Manager()
+    objects_read = QueryManager(read__isnull=False).order_by('created')
+    objects_unread = QueryManager(read__isnull=True).order_by('created')
 
     def __unicode__(self):
         return self.url

@@ -8,8 +8,10 @@
 {% if link %}
   <p>Your next link is: <a href="{{ link }}">{{ link }}</a></p>
 
-<form action="." method="POST">{{ form }}{% csrf_token %}
-   <input type="submit" value="Go" />
+<form action="." method="POST">
+   {{ form }}{% csrf_token %}
+  <br/>
+   <input type="submit" value="Save" />
 </form>
 
 {% else %}

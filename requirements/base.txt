@@ -6,3 +6,4 @@ logutils==0.3.3
 South==0.7.6
 django-tinymce==1.5.1
 Werkzeug==0.8.3
+django-less==0.7.1

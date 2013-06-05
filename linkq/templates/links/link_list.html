@@ -8,11 +8,13 @@
 {% if link_list %}
         {% for link in link_list %}
             <div class="link">
+               <div class="dates">
+                 <span class="date-added">A: {{ link.created }}</span>
+                 {% if link.read %}
+                   <span class="date-read">R: {{ link.read }}</span>
+                 {% endif %}
+               </div>
                <p class="lead"><a href=={{ link.url }}">{{ link.url }}</a></p>
-               <span class="date-added">Added: {{ link.created }}</span>
-               {% if link.read %}
-                 <span class="date-read">Read: {{ link.read }}</span>
-               {% endif %}
                {% if link.summary %}
                   <div class="summary">
                   {% autoescape off %}

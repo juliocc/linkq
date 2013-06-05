@@ -102,6 +102,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'less.finders.LessFinder',
 )
 ########## END STATIC FILE CONFIGURATION
 
@@ -196,6 +197,7 @@ THIRD_PARTY_APPS = (
     # Database migration helpers:
     'south',
     'tinymce',
+    'less',
 )
 
 # Apps specific for this project go here.

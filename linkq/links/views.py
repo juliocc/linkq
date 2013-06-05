@@ -55,6 +55,6 @@ class QueuedLinksView(ExtraContextMixin, ListView):
     extra_context = {'title': 'Queued links'}
 
 class ReadLinksView(ExtraContextMixin, ListView):
-    queryset = Link.objects_read.all()
-    paginate_by = 10
+    queryset = Link.objects_read.all().order_by('-read')
+    paginate_by = 5
     extra_context = {'title': 'Read links'}

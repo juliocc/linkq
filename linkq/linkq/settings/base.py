@@ -198,6 +198,7 @@ THIRD_PARTY_APPS = (
     'south',
     'tinymce',
     'less',
+    'django_extensions',
 )
 
 # Apps specific for this project go here.

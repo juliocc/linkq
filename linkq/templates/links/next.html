@@ -6,7 +6,7 @@
 {% block content %}
 
 {% if link %}
-  <p>Your next link is: <a href="{{ link }}">{{ link }}</a></p>
+  <p>Your next link is: <a href="{{ link }}">{{ link.title|default:link.url }}</a></p>
 
 <form action="." method="POST">
    {{ form }}{% csrf_token %}

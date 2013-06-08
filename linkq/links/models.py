@@ -8,8 +8,7 @@ class Link(TimeStampedModel):
     url = models.CharField("URL", max_length=1024, unique=True)
     read = models.DateTimeField("Date read", null=True, blank=True)
     summary = tinymce_models.HTMLField(blank=True)
-
-    # TODO: add title
+    title = models.CharField("Title", max_length=1024, blank=True)
 
     objects = models.Manager()
     objects_read = QueryManager(read__isnull=False).order_by('created')

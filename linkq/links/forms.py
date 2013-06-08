@@ -13,7 +13,7 @@ class NextLinkForm(forms.ModelForm):
 
     class Meta:
         model = Link
-        fields = ['summary']
+        fields = ['title', 'summary']
 
 
 class MultiURLField(forms.Field):

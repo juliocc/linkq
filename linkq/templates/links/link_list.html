@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block page_title %} {{ title }} {% endblock %}
+{% block page_title %} {{ headline }} {% endblock %}
 
 
 {% block content %}
@@ -14,7 +14,7 @@
                    <span class="date-read">R: {{ link.read }}</span>
                  {% endif %}
                </div>
-               <p class="lead"><a href=={{ link.url }}">{{ link.url }}</a></p>
+               <p class="lead"><a href=={{ link.url }}">{{ link.title|default:link.url }}</a></p>
                {% if link.summary %}
                   <div class="summary">
                   {% autoescape off %}

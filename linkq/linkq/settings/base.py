@@ -200,6 +200,7 @@ THIRD_PARTY_APPS = (
     'less',
     'django_extensions',
     'crispy_forms',
+    'bootstrap-pagination',
 )
 
 # Apps specific for this project go here.

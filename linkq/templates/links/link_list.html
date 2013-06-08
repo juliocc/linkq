@@ -15,7 +15,7 @@
                    <span class="date-read">R: {{ link.read }}</span>
                  {% endif %}
                </div>
-               <p class="lead"><a href=={{ link.url }}">{{ link.title|default:link.url }}</a></p>
+               <p class="lead"><a href="{{ link.url }}">{{ link.title|default:link.url }}</a></p>
                {% if link.title %}
                   <p class="url">{{ link.url }}</p>
                {% endif  %}

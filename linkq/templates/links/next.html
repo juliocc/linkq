@@ -1,12 +1,26 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
+{% block title %} Next Link -- linkq {% endblock %}
 {% block page_title %} Link Queue {% endblock %}
 
 
 {% block content %}
 
 {% if link %}
+
+    <div class="hero-unit">
+      {% if link.title %}
+      <h1>{{link.title}}</h1>
+      {% endif %}
+      <p>
+      <p>{{ link.url }}</p>
+        <a href="{{ link.url }}" class="btn btn-primary btn-large">
+           Go
+        </a>
+      </p>
+    </div>
+
   <p>Your next link is: <a href="{{ link }}">{{ link.title|default:link.url }}</a></p>
 
    {% crispy form %}

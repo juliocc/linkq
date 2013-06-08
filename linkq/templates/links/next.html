@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block page_title %} Link Queue {% endblock %}
 
@@ -8,11 +9,7 @@
 {% if link %}
   <p>Your next link is: <a href="{{ link }}">{{ link.title|default:link.url }}</a></p>
 
-<form action="." method="POST">
-   {{ form }}{% csrf_token %}
-  <br/>
-   <input type="submit" value="Save" />
-</form>
+   {% crispy form %}
 
 {% else %}
   <p>No more links!</p>

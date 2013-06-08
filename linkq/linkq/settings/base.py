@@ -199,6 +199,7 @@ THIRD_PARTY_APPS = (
     'tinymce',
     'less',
     'django_extensions',
+    'crispy_forms',
 )
 
 # Apps specific for this project go here.
@@ -255,4 +256,5 @@ TINYMCE_DEFAULT_CONFIG = {
     'theme': "advanced",
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 10,
+    'theme_advanced_resizing': True,
 }

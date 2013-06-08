@@ -25,6 +25,12 @@ body {
       margin-bottom: 5px;
    }
 
+   p.url {
+      margin-top: -10px;
+      font-size: 90%;
+      color: #aaa;
+   }
+
    .summary {
       @include border-radius($baseBorderRadius);
       border-top: 1px solid $grayLighter;

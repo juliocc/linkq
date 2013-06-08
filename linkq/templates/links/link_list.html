@@ -15,6 +15,9 @@
                  {% endif %}
                </div>
                <p class="lead"><a href=={{ link.url }}">{{ link.title|default:link.url }}</a></p>
+               {% if link.title %}
+                  <p class="url">{{ link.url }}</p>
+               {% endif  %}
                {% if link.summary %}
                   <div class="summary">
                   {% autoescape off %}

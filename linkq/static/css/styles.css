@@ -6816,6 +6816,12 @@ body {
   margin-bottom: 5px;
 }
 /* line 28, ../sass/styles.scss */
+.link p.url {
+  margin-top: -10px;
+  font-size: 90%;
+  color: #aaa;
+}
+/* line 34, ../sass/styles.scss */
 .link .summary {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -6824,7 +6830,7 @@ body {
   background-color: #f5f5f5;
   padding: 2px 10px;
 }
-/* line 36, ../sass/styles.scss */
+/* line 42, ../sass/styles.scss */
 .link .dates {
   font-size: 90%;
   color: #999;

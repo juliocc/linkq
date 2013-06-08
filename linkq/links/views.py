@@ -2,10 +2,10 @@ import datetime
 
 from django.contrib import messages
 from django.core.urlresolvers import reverse, reverse_lazy
-from django.views.generic import UpdateView, FormView, ListView, View
+from django.views.generic import UpdateView, FormView, ListView
 
 import lxml.html
-from braces.views import JSONResponseMixin, SetHeadlineMixin
+from braces.views import SetHeadlineMixin
 
 from .models import Link
 from .forms import NextLinkForm, AddLinkForm
@@ -70,13 +70,4 @@ class ReadLinksView(SetHeadlineMixin, ListView):
     queryset = Link.objects_read.all().order_by('-read')
     paginate_by = 5
     headline = 'Read links'
-
-
-class CandidateTitleView(JSONResponseMixin, View):
-
-    def get(self, request, *args, **kwargs):
-        url = request.GET.get('url')
-        title = self.get_candidate_title(url)
-        return self.render_json_response({'title': title})
-
 

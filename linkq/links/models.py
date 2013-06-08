@@ -1,6 +1,8 @@
 from django.db import models
 from model_utils.models import TimeStampedModel
 from model_utils.managers import QueryManager
+
+from taggit_autosuggest_select2.managers import TaggableManager
 from tinymce import models as tinymce_models
 
 
@@ -13,6 +15,8 @@ class Link(TimeStampedModel):
     objects = models.Manager()
     objects_read = QueryManager(read__isnull=False).order_by('created')
     objects_unread = QueryManager(read__isnull=True).order_by('created')
+
+    tags = TaggableManager(blank=True)
 
     def __unicode__(self):
         return self.url

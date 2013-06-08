@@ -18,6 +18,7 @@ class NextLinkForm(forms.ModelForm):
         self.helper.form_class = 'form-horizontal'
         self.helper.layout = Layout(
             Field('title', css_class='input-block-level'),
+            Field('tags', css_class='input-block-level'),
             Field('summary', css_class='input-block-level'),
             FormActions(
                 Submit('save_changes', 'Save and next', css_class="btn-primary"),
@@ -26,7 +27,7 @@ class NextLinkForm(forms.ModelForm):
 
     class Meta:
         model = Link
-        fields = ['title', 'summary']
+        fields = ['title', 'summary', 'tags']
 
 
 

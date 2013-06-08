@@ -17,6 +17,8 @@ urlpatterns = patterns('',
     # uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
+    url(r'^taggit_autosuggest/', include('taggit_autosuggest_select2.urls')),
+
     # Uncomment the next line to enable the admin:
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^admin/', include(admin.site.urls)),

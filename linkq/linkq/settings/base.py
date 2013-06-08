@@ -201,6 +201,8 @@ THIRD_PARTY_APPS = (
     'django_extensions',
     'crispy_forms',
     'bootstrap-pagination',
+    'taggit',
+    "taggit_autosuggest_select2",
 )
 
 # Apps specific for this project go here.

@@ -36,23 +36,19 @@ class AddLinkView(FormView):
     success_url = reverse_lazy('index')
 
     def get_candidate_title(self, url):
-        try:
-            e = lxml.html.parse(url).getroot()
-            title = e.find('.//title')
+        e = lxml.html.parse(url).getroot()
+        title = e.find('.//title')
+        if title is not None:
             return title.text
-        except:
-            return None
-
+        return ""
 
     def form_valid(self, form):
         for url in form.cleaned_data['urls']:
-            link, created = Link.objects.get_or_create(url=url)
+            # FIXME: try not to fetch the title if the page already exists
+            defaults = {'title': self.get_candidate_title(url)}
+            link, created = Link.objects.get_or_create(url=url, defaults=defaults)
             if created:
                 msg = "Added {}".format(url)
-                title = self.get_candidate_title(url)
-                if title is not None:
-                    link.title = title
-                    link.save()
                 messages.success(self.request, msg)
             else:
                 msg = "You already have or had {} in your queue".format(url)

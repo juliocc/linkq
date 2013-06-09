@@ -17,15 +17,15 @@ class Link(TimeStampedModel):
     title = models.CharField("Title", max_length=1024, blank=True)
     search_index = VectorField()
 
-    objects_read = QueryManager(read__isnull=False).order_by('created')
-    objects_unread = QueryManager(read__isnull=True).order_by('created')
-
     objects = SearchManager(
         fields = ('title', 'summary'),
         config = 'pg_catalog.english',   # this is default
         search_field = 'search_index',   # this is default
         auto_update_search_field = False # we do it using a trigger
     )
+
+    objects_read = QueryManager(read__isnull=False).order_by('created')
+    objects_unread = QueryManager(read__isnull=True).order_by('created')
 
     tags = TaggableManager(blank=True)
 

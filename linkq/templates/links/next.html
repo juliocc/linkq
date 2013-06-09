@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block title %} Next Link -- linkq {% endblock %}
-{% block page_title %} Link Queue {% endblock %}
+{% block page_title %} {% endblock %}
 
 
 {% block content %}
@@ -20,8 +20,6 @@
         </a>
       </p>
     </div>
-
-  <p>Your next link is: <a href="{{ link }}">{{ link.title|default:link.url }}</a></p>
 
    {% crispy form %}
 

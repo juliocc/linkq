@@ -51,7 +51,7 @@ class MultiURLField(forms.Field):
             urlvalidator(url)
 
 class AddLinkForm(forms.Form):
-    urls = MultiURLField(widget=forms.Textarea)
+    urls = MultiURLField(widget=forms.Textarea, help_text="One URL per line")
 
     def __init__(self, *args, **kwargs):
         super(AddLinkForm, self).__init__(*args, **kwargs)

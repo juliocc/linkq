@@ -17,3 +17,4 @@ django-crispy-forms==1.2.8
 django-bootstrap-pagination==0.1.10
 django-taggit==0.10a1
 -e git+https://github.com/juliocc/django-taggit-autosuggest-select2.git#egg=taggit_autosuggest_select2
+djorm-ext-pgfulltext==0.8

@@ -71,3 +71,10 @@ class ReadLinksView(SetHeadlineMixin, ListView):
     paginate_by = 5
     headline = 'Read links'
 
+
+class SearchView(SetHeadlineMixin, ListView):
+    paginate_by = 10
+    headline = 'Search results'
+    
+    def get_queryset(self):
+        return Link.objects.search(self.request.GET.get('q', ''))

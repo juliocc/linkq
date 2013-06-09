@@ -47,6 +47,9 @@
               <li class="{% current 'queued_links' %}"><a href="{% url 'queued_links' %}">Queue</a></li>
               <li class="{% current 'read_links' %}"><a href="{% url 'read_links' %}">Read</a></li>
             </ul>
+            <form action="{% url 'search_links' %}" method="GET" class="navbar-search pull-right">
+              <input type="text" name="q" class="search-query" placeholder="Search" value="{{ request.GET.q }}">
+            </form>
           </div><!--/.nav-collapse -->
         </div>
       </div>
